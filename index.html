@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sculpt Houston: North Houston's Dedicated Cosmetic Recovery Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Josefin+Sans:wght@100;300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --eggplant: #1A0E2B;
+    --eggplant-mid: #251540;
+    --eggplant-light: #2E1B50;
+    --gold: #D4A04E;
+    --gold-soft: #E5B86A;
+    --gold-pale: #F0D4A0;
+    --cream: #F5EFE0;
+    --cream-dark: #EDE5D0;
+    --purple-soft: #C9B8D9;
+    --purple-accent: #8A4FBF;
+    --rose: #E89E9E;
+    --rose-dark: #B8646E;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Josefin Sans', sans-serif;
+    background: var(--eggplant);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(26, 14, 43, 0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212, 160, 78, 0.18);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 2px;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+  .nav-logo .the { font-size: 8px; letter-spacing: 4px; color: var(--gold); font-weight: 300; }
+  .nav-logo .sculpt { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--cream); font-weight: 500; letter-spacing: 2px; }
+  .nav-logo .houston { font-size: 7px; letter-spacing: 5px; color: var(--gold); font-weight: 300; }
+  .hero-logo-img { width: 100%; max-width: 660px; height: auto; display: block; margin: 0 auto; }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: 300;
+    opacity: 0.8;
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--gold-soft); }
+
+  .nav-book {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 10px 24px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .nav-book:hover { background: var(--gold); color: var(--eggplant); }
+
+  /* PAGE SECTIONS */
+  .page-section { display: none; padding-top: 80px; min-height: 100vh; }
+  .page-section.active { display: block; }
+
+  /* ===================== HOME PAGE ===================== */
+  .hero {
+    min-height: 96vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px 80px;
+    position: relative;
+    background: radial-gradient(ellipse at 50% 10%, #2E1B50 0%, var(--eggplant) 65%);
+  }
+
+  .launch-badge {
+    display: inline-block;
+    border: 1px solid rgba(212, 160, 78, 0.4);
+    color: var(--gold-soft);
+    font-size: 9px;
+    letter-spacing: 4px;
+    padding: 8px 20px;
+    margin-bottom: 44px;
+    font-weight: 300;
+  }
+
+  .hero-wordmark {
+    margin-bottom: 32px;
+    line-height: 1;
+  }
+  .hero-wordmark .the-word {
+    display: block;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 8px;
+    color: var(--gold);
+    font-weight: 100;
+    margin-bottom: 4px;
+  }
+  .hero-wordmark .sculpt-word {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 96px;
+    color: var(--cream);
+    font-weight: 300;
+    letter-spacing: 8px;
+    line-height: 0.9;
+  }
+  .hero-wordmark .houston-word {
+    display: block;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 14px;
+    color: var(--gold);
+    font-weight: 100;
+    margin-top: 10px;
+  }
+
+  .hero-subtitle {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--purple-soft);
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+  .hero-nurse-badge {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(245, 239, 224, 0.5);
+    font-weight: 300;
+    margin-bottom: 52px;
+  }
+  .hero-pill {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--cream);
+    font-weight: 300;
+    border: 1px solid rgba(212, 160, 78, 0.35);
+    padding: 10px 24px;
+    margin: 0;
+  }
+
+  .gold-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 48px;
+    opacity: 0.5;
+  }
+
+  .hero-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--cream);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 540px;
+    margin: 0 auto 10px;
+  }
+  .hero-directive {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--gold-soft);
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 52px;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--eggplant);
+    border: none;
+    padding: 16px 40px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-soft); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid rgba(245,239,224,0.3);
+    padding: 16px 40px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    font-weight: 300;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* WHAT PATIENTS DONT KNOW */
+  .stats-section {
+    background: var(--eggplant-mid);
+    padding: 80px 40px;
+    text-align: center;
+    border-top: 1px solid rgba(212,160,78,0.15);
+    border-bottom: 1px solid rgba(212,160,78,0.15);
+  }
+  .section-eyebrow {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 48px;
+    line-height: 1.3;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto 40px;
+  }
+  .stat-card {
+    border: 1px solid rgba(212,160,78,0.2);
+    padding: 40px 32px;
+    text-align: left;
+    position: relative;
+  }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    color: var(--gold);
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--cream);
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  .stat-desc {
+    font-size: 12px;
+    color: rgba(245,239,224,0.6);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .stat-source {
+    font-size: 10px;
+    color: rgba(212,160,78,0.5);
+    margin-top: 12px;
+    font-style: italic;
+  }
+  .stats-closer {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--purple-soft);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  /* INTRO PARAGRAPH */
+  .intro-section {
+    padding: 80px 40px;
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .intro-body {
+    font-size: 16px;
+    color: rgba(245,239,224,0.82);
+    font-weight: 300;
+    line-height: 2.1;
+    margin-bottom: 28px;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* LOCATION BAR */
+  .location-bar {
+    background: var(--eggplant-light);
+    border-top: 1px solid rgba(212,160,78,0.15);
+    border-bottom: 1px solid rgba(212,160,78,0.15);
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .location-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(245,239,224,0.7);
+    font-weight: 300;
+  }
+  .location-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ENTIRE HOME BANNER */
+  .entire-home-banner {
+    background: var(--gold);
+    padding: 28px 40px;
+    text-align: center;
+  }
+  .entire-home-banner p {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--eggplant);
+    font-weight: 600;
+  }
+
+  /* ===================== THE HOME PAGE ===================== */
+  .home-hero-section {
+    padding: 80px 40px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .page-hero-label {
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .page-hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 40px;
+  }
+
+  .comfort-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+  .comfort-card {
+    background: var(--eggplant-mid);
+    border: 1px solid rgba(212,160,78,0.2);
+    padding: 32px 24px;
+  }
+  .card-icon-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 14px;
+    opacity: 0.85;
+  }
+  .comfort-card-icon {
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 24px;
+    opacity: 0.6;
+  }
+  .comfort-card-title {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold-soft);
+    font-weight: 400;
+    margin-bottom: 14px;
+  }
+  .comfort-card-body {
+    font-size: 13px;
+    color: rgba(245,239,224,0.7);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+  .comfort-card-list {
+    list-style: none;
+    margin-top: 10px;
+  }
+  .comfort-card-list li {
+    font-size: 12px;
+    color: rgba(245,239,224,0.65);
+    font-weight: 300;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(212,160,78,0.08);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .comfort-card-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  /* EVERY STAY INCLUDES */
+  .every-stay-section {
+    padding: 80px 40px;
+    background: var(--eggplant-mid);
+    border-top: 1px solid rgba(212,160,78,0.15);
+  }
+  .every-stay-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 80px;
+    max-width: 560px;
+    margin: 40px auto 0;
+  }
+  .stay-item {
+    font-size: 12px;
+    color: rgba(245,239,224,0.75);
+    font-weight: 300;
+    letter-spacing: 1px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(212,160,78,0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .stay-item::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  /* ===================== STAY PACKAGES PAGE ===================== */
+  .packages-section {
+    padding: 80px 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .package-card {
+    border: 1px solid rgba(212,160,78,0.25);
+    padding: 40px 28px;
+    position: relative;
+    background: var(--eggplant-mid);
+    transition: border-color 0.2s;
+  }
+  .package-card:hover { border-color: rgba(212,160,78,0.5); }
+  .package-card.featured {
+    border-color: var(--gold);
+    background: var(--eggplant-light);
+  }
+  .featured-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--eggplant);
+    font-size: 8px;
+    letter-spacing: 3px;
+    padding: 5px 16px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .pkg-name {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+  .pkg-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: rgba(245,239,224,0.5);
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 32px;
+    line-height: 1.5;
+  }
+  .pkg-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    color: var(--cream);
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .pkg-price sup {
+    font-size: 24px;
+    vertical-align: top;
+    margin-top: 12px;
+    display: inline-block;
+  }
+  .pkg-per-night {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(245,239,224,0.4);
+    font-weight: 300;
+    margin-bottom: 4px;
+  }
+  .pkg-nights {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--gold-soft);
+    font-weight: 300;
+    margin-bottom: 28px;
+  }
+  .pkg-rule {
+    height: 1px;
+    background: rgba(212,160,78,0.2);
+    margin-bottom: 24px;
+  }
+  .pkg-includes {
+    list-style: none;
+  }
+  .pkg-includes li {
+    font-size: 12px;
+    color: rgba(245,239,224,0.65);
+    font-weight: 300;
+    padding: 6px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+  }
+  .pkg-includes li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.5;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .pkg-save {
+    display: inline-block;
+    background: rgba(212,160,78,0.1);
+    border: 1px solid rgba(212,160,78,0.3);
+    color: var(--gold-soft);
+    font-size: 9px;
+    letter-spacing: 2px;
+    padding: 5px 12px;
+    margin-top: 16px;
+  }
+  .packages-note {
+    text-align: center;
+    margin-top: 48px;
+    font-size: 11px;
+    color: rgba(245,239,224,0.4);
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-style: italic;
+  }
+
+  /* ===================== THE MENU PAGE ===================== */
+  .menu-section {
+    padding: 80px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .menu-category {
+    margin-bottom: 60px;
+  }
+  .menu-cat-label {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+  .menu-cat-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--cream);
+    font-weight: 300;
+    margin-bottom: 6px;
+  }
+  .menu-cat-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--purple-soft);
+    margin-bottom: 32px;
+  }
+  .menu-items-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .menu-item {
+    border: 1px solid rgba(212,160,78,0.15);
+    padding: 24px 20px;
+    background: var(--eggplant-mid);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .menu-item-info {}
+  .menu-item-name {
+    font-size: 13px;
+    color: var(--cream);
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .menu-item-desc {
+    font-size: 11px;
+    color: rgba(245,239,224,0.5);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .menu-item-badge {
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    background: rgba(212,160,78,0.1);
+    border: 1px solid rgba(212,160,78,0.3);
+    padding: 3px 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .menu-price-row {
+    font-size: 11px;
+    color: rgba(245,239,224,0.5);
+    font-weight: 300;
+    margin-top: 6px;
+  }
+  .menu-bundle {
+    grid-column: 1/-1;
+    border: 1px solid rgba(212,160,78,0.3);
+    background: rgba(212,160,78,0.04);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .menu-bundle-text {
+    font-size: 11px;
+    color: var(--gold-soft);
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+  .menu-bundle-text strong {
+    font-weight: 600;
+    color: var(--gold);
+  }
+  .menu-bundle-save {
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 1px;
+    font-weight: 300;
+    white-space: nowrap;
+  }
+  .post-op-fave {
+    display: inline-block;
+    background: rgba(232,158,158,0.1);
+    border: 1px solid rgba(232,158,158,0.3);
+    color: var(--rose);
+    font-size: 8px;
+    letter-spacing: 2px;
+    padding: 3px 8px;
+    margin-top: 4px;
+  }
+
+  /* ===================== MEET ALICIA PAGE ===================== */
+  .meet-section {
+    padding: 80px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .meet-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .meet-image-placeholder {
+    background: var(--eggplant-light);
+    border: 1px solid rgba(212,160,78,0.2);
+    aspect-ratio: 3/4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .meet-image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+  }
+  .meet-image-text {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: rgba(212,160,78,0.4);
+    font-weight: 300;
+    text-align: center;
+    padding: 20px;
+  }
+  .meet-content {}
+  .meet-title {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .meet-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    color: var(--cream);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .meet-role {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--purple-soft);
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+  .cred-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .cred-credentials-box {
+    border: 1px solid rgba(212,160,78,0.25);
+    background: rgba(212,160,78,0.04);
+    padding: 24px 28px;
+    margin-bottom: 28px;
+  }
+  .cred-box-title {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .cred-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 20px;
+  }
+  .cred-item {
+    font-size: 11px;
+    color: rgba(245,239,224,0.7);
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0.3px;
+  }
+  .cred-badge {
+    border: 1px solid rgba(212,160,78,0.3);
+    color: var(--gold-soft);
+    font-size: 9px;
+    letter-spacing: 2px;
+    padding: 6px 12px;
+    font-weight: 300;
+  }
+  .meet-bio {
+    font-size: 14px;
+    color: rgba(245,239,224,0.75);
+    font-weight: 300;
+    line-height: 1.9;
+    margin-bottom: 16px;
+  }
+  .meet-closer {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--gold-soft);
+    line-height: 1.7;
+    border-left: 2px solid var(--gold);
+    padding-left: 20px;
+    margin-top: 24px;
+  }
+
+  /* ===================== BOOK NOW PAGE ===================== */
+  .book-section {
+    padding: 80px 40px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .book-pkg-selector {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 40px 0;
+    text-align: left;
+  }
+  .book-pkg-option {
+    border: 1px solid rgba(212,160,78,0.2);
+    padding: 20px 16px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    background: var(--eggplant-mid);
+  }
+  .book-pkg-option:hover,
+  .book-pkg-option.selected {
+    border-color: var(--gold);
+    background: var(--eggplant-light);
+  }
+  .book-pkg-option-name {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 4px;
+  }
+  .book-pkg-option-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--cream);
+    font-weight: 300;
+  }
+  .book-pkg-option-nights {
+    font-size: 10px;
+    color: rgba(245,239,224,0.45);
+    margin-top: 2px;
+    font-weight: 300;
+  }
+
+  .book-form {
+    text-align: left;
+    display: grid;
+    gap: 16px;
+  }
+  .book-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: var(--eggplant-mid);
+    border: 1px solid rgba(212,160,78,0.2);
+    color: var(--cream);
+    padding: 14px 16px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+  .form-group select option {
+    background: var(--eggplant);
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  .book-deposit-note {
+    font-size: 11px;
+    color: rgba(245,239,224,0.45);
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-top: 8px;
+    font-style: italic;
+  }
+  .book-contact-alt {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(212,160,78,0.15);
+  }
+  .book-contact-alt p {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(245,239,224,0.4);
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+  .book-contact-alt a {
+    color: var(--gold-soft);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .book-contact-alt a:hover { color: var(--gold); }
+
+  /* SNATCHED SECRETS SECTION */
+  .snatched-section {
+    background: var(--eggplant-light);
+    border-top: 1px solid rgba(212,160,78,0.15);
+    border-bottom: 1px solid rgba(212,160,78,0.15);
+    padding: 60px 40px;
+    max-width: 100%;
+  }
+  .snatched-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .snatched-logo-placeholder {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,160,78,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: rgba(212,160,78,0.4);
+    text-align: center;
+    line-height: 1.3;
+    padding: 4px;
+    flex-shrink: 0;
+  }
+  .snatched-content-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+  .snatched-content-body {
+    font-size: 15px;
+    color: rgba(245,239,224,0.78);
+    font-weight: 300;
+    line-height: 2;
+    margin-bottom: 4px;
+  }
+  .snatched-bullets {
+    list-style: none;
+    margin: 20px 0 20px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 32px;
+  }
+  .snatched-bullets li {
+    font-size: 13px;
+    color: rgba(245,239,224,0.72);
+    font-weight: 300;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+  .snatched-bullets li::before {
+    content: '✓';
+    color: var(--gold);
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .snatched-excl {
+    font-size: 11px;
+    color: var(--gold-soft);
+    font-weight: 400;
+    margin-top: 12px;
+    letter-spacing: 0.5px;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #110822;
+    border-top: 1px solid rgba(212,160,78,0.2);
+    padding: 48px 40px 36px;
+    text-align: center;
+  }
+  .footer-tagline {
+    font-size: 9px;
+    letter-spacing: 6px;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+  .footer-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: rgba(245,239,224,0.3);
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 32px;
+  }
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: rgba(245,239,224,0.3);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-disclaimer {
+    font-size: 10px;
+    color: rgba(245,239,224,0.2);
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 500px;
+    margin: 0 auto 20px;
+  }
+  .footer-rcr {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: rgba(212,160,78,0.4);
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+  .footer-bottom {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(245,239,224,0.15);
+    font-weight: 300;
+  }
+
+  /* AREAS PAGE */
+  .areas-section {
+    padding: 80px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .area-card {
+    border: 1px solid rgba(212,160,78,0.15);
+    padding: 32px 28px;
+    background: var(--eggplant-mid);
+  }
+  .area-name {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+  .area-desc {
+    font-size: 13px;
+    color: rgba(245,239,224,0.65);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+  .areas-seo-note {
+    margin-top: 48px;
+    padding: 28px;
+    border: 1px solid rgba(201,184,217,0.2);
+    background: rgba(201,184,217,0.04);
+    font-size: 12px;
+    color: rgba(245,239,224,0.5);
+    font-weight: 300;
+    line-height: 1.9;
+  }
+
+  /* COMPETITIVE SECTION */
+  .competitive-section {
+    padding: 80px 40px;
+    background: #110822;
+    border-top: 1px solid rgba(212,160,78,0.15);
+    border-bottom: 1px solid rgba(212,160,78,0.15);
+  }
+  .competitive-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .comp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+  .comp-card {
+    padding: 32px 28px;
+    border: 1px solid rgba(212,160,78,0.15);
+  }
+  .comp-card.comp-no {
+    background: rgba(255,255,255,0.02);
+    border-color: rgba(255,255,255,0.08);
+  }
+  .comp-card.comp-yes {
+    background: rgba(212,160,78,0.05);
+    border-color: rgba(212,160,78,0.35);
+  }
+  .comp-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(212,160,78,0.1);
+  }
+  .comp-x {
+    font-size: 18px;
+    color: rgba(245,239,224,0.2);
+    font-weight: 300;
+    flex-shrink: 0;
+  }
+  .comp-check {
+    font-size: 18px;
+    color: var(--gold);
+    font-weight: 400;
+    flex-shrink: 0;
+  }
+  .comp-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: 300;
+  }
+  .comp-no .comp-label { color: rgba(245,239,224,0.3); }
+  .comp-yes .comp-label { color: var(--gold-soft); }
+  .comp-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .comp-list li {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(212,160,78,0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .comp-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+  .comp-no .comp-list li { color: rgba(245,239,224,0.35); }
+  .comp-no .comp-list li::before { background: rgba(245,239,224,0.15); }
+  .comp-yes .comp-list li { color: rgba(245,239,224,0.8); }
+  .comp-yes .comp-list li::before { background: var(--gold); opacity: 0.6; }
+  .comp-closer {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--gold-soft);
+    line-height: 1.8;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .why-choose-box {
+    border: 1px solid rgba(212,160,78,0.3);
+    background: rgba(212,160,78,0.04);
+    padding: 36px 40px;
+    margin-bottom: 48px;
+  }
+  .why-choose-title {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .why-choose-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 40px;
+  }
+  .why-item {
+    font-size: 12px;
+    color: rgba(245,239,224,0.8);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .why-check {
+    color: var(--gold);
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+
+  /* PHOTO GALLERY */
+  .gallery-section {
+    padding: 0 40px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  .gallery-grid.two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+  .photo-slot {
+    position: relative;
+    background: var(--eggplant-mid);
+    border: 1px dashed rgba(212,160,78,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .photo-slot.tall { aspect-ratio: 3/4; }
+  .photo-slot.wide { aspect-ratio: 4/3; }
+  .photo-slot.square { aspect-ratio: 1/1; }
+  .photo-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-slot-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(26,14,43,0.9) 0%, transparent 100%);
+    padding: 20px 12px 10px;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    font-weight: 300;
+    text-align: center;
+  }
+  .photo-slot-icon {
+    font-size: 24px;
+    opacity: 0.2;
+    margin-bottom: 10px;
+  }
+  .photo-slot-hint {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(212,160,78,0.35);
+    font-weight: 300;
+    text-align: center;
+    padding: 0 12px;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero-wordmark .sculpt-word { font-size: 56px; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .comfort-cards-grid { grid-template-columns: 1fr; padding: 0 20px 60px; }
+    .packages-grid { grid-template-columns: 1fr; }
+    .meet-grid { grid-template-columns: 1fr; gap: 40px; }
+    .meet-image-placeholder { aspect-ratio: 1/1; }
+    .book-pkg-selector { grid-template-columns: 1fr; }
+    .book-form-row { grid-template-columns: 1fr; }
+    .menu-items-grid { grid-template-columns: 1fr; }
+    .areas-grid { grid-template-columns: 1fr; }
+    .comp-grid { grid-template-columns: 1fr; }
+    .hero-cta-row { flex-direction: column; }
+    .snatched-inner { grid-template-columns: 1fr; }
+    .location-bar { gap: 20px; }
+    .every-stay-grid { grid-template-columns: 1fr; max-width: 300px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <span class="the">THE</span>
+    <span class="sculpt">SCULPT</span>
+    <span class="houston">HOUSTON</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home')">Home</a></li>
+    <li><a href="#" onclick="showPage('the-home')">The Home</a></li>
+    <li><a href="#" onclick="showPage('packages')">Stay Packages</a></li>
+    <li><a href="#" onclick="showPage('menu')">The Menu</a></li>
+    <li><a href="#" onclick="showPage('alicia')">Meet Alicia</a></li>
+    <li><a href="#" onclick="showPage('areas')">Areas We Serve</a></li>
+  </ul>
+  <a href="#" class="nav-book" onclick="showPage('book')">BOOK NOW</a>
+</nav>
+
+<!-- ===================== HOME PAGE ===================== -->
+<section id="home" class="page-section active">
+
+  <div class="hero">
+    <div class="launch-badge">NORTH HOUSTON'S DEDICATED COSMETIC RECOVERY HOME</div>
+
+    <div class="hero-wordmark">
+      <img src="data:image/png;base64,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" alt="The Sculpt Houston" class="hero-logo-img">
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:44px; align-items:center;">
+      <p style="font-size:12px; letter-spacing:2px; color:rgba(245,239,224,0.65); font-weight:300; margin:0;">Entire Home Reserved For You</p>
+      <p style="font-size:12px; letter-spacing:2px; color:rgba(245,239,224,0.65); font-weight:300; margin:0;">Minutes From Bush Intercontinental Airport (IAH)</p>
+    </div>
+
+    <div class="gold-rule"></div>
+
+    <p class="hero-quote" style="white-space:nowrap;">Your results are made twice. Once in the operating room. Once in recovery.</p>
+    <p class="hero-directive">You invested in your results. Protect them.</p>
+
+    <div class="hero-cta-row">
+      <a href="#" class="btn-primary" onclick="showPage('book')">RESERVE YOUR STAY</a>
+      <a href="#" class="btn-ghost" onclick="showPage('packages')">VIEW PACKAGES</a>
+    </div>
+  </div>
+
+
+  <!-- PHOTO GALLERY SECTION -->
+  <div class="gallery-section">
+    <p class="section-eyebrow" style="text-align:center; margin-bottom:12px;">THE HOME</p>
+    <h2 class="section-title" style="text-align:center; font-size:32px; margin-bottom:32px;">Your Recovery Space</h2>
+
+    <!-- Top row: 3 home photos -->
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:12px;">
+      <div class="photo-slot tall" id="photo-living">
+        <div class="photo-slot-icon">⌂</div>
+        <div class="photo-slot-hint">LIVING AREA</div>
+        <div class="photo-slot-label">LIVING AREA</div>
+      </div>
+      <div class="photo-slot tall" id="photo-bedroom">
+        <div class="photo-slot-icon">⌂</div>
+        <div class="photo-slot-hint">BEDROOM</div>
+        <div class="photo-slot-label">BEDROOM</div>
+      </div>
+      <div class="photo-slot tall" id="photo-kitchen">
+        <div class="photo-slot-icon">⌂</div>
+        <div class="photo-slot-hint">KITCHEN</div>
+        <div class="photo-slot-label">KITCHEN</div>
+      </div>
+    </div>
+
+    <!-- Bottom row: 2 wide photos -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+      <div class="photo-slot wide" id="photo-bathroom">
+        <div class="photo-slot-icon">⌂</div>
+        <div class="photo-slot-hint">BATHROOM</div>
+        <div class="photo-slot-label">BATHROOM</div>
+      </div>
+      <div class="photo-slot wide" id="photo-exterior">
+        <div class="photo-slot-icon">⌂</div>
+        <div class="photo-slot-hint">EXTERIOR</div>
+        <div class="photo-slot-label">EXTERIOR</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPETITIVE POSITIONING SECTION -->
+  <div class="competitive-section">
+    <div class="competitive-inner">
+      <p class="section-eyebrow" style="text-align:center; margin-bottom:14px;">WHY THE SCULPT HOUSTON</p>
+      <h2 class="section-title" style="text-align:center; font-size:36px; margin-bottom:8px;">The Recovery Experience North Houston Has Been Missing</h2>
+      <p style="text-align:center; font-size:11px; letter-spacing:3px; color:var(--purple-soft); font-weight:300; margin-bottom:48px;">Private. Recovery-Focused. Minutes From IAH.</p>
+      <div class="comp-grid">
+        <div class="comp-card comp-no">
+          <div class="comp-card-header">
+            <span class="comp-x">✕</span>
+            <span class="comp-label">Traditional Accommodations</span>
+          </div>
+          <ul class="comp-list">
+            <li>Generic Airbnb rentals and hotels</li>
+            <li>Not designed for post-op recovery</li>
+            <li>No Customized First 48 Post Op Recovery Kit</li>
+            <li>No recovery-focused comforts</li>
+            <li>Not designed by a recovery professional</li>
+            <li>No mobile post-op massage options</li>
+          </ul>
+        </div>
+        <div class="comp-card comp-yes">
+          <div class="comp-card-header">
+            <span class="comp-check">✓</span>
+            <span class="comp-label">The Sculpt Houston</span>
+          </div>
+          <ul class="comp-list">
+            <li>North Houston's dedicated cosmetic recovery home</li>
+            <li>Entire Home Reserved For You</li>
+            <li>Designed specifically for cosmetic surgery recovery</li>
+            <li>Customized First 48 Post Op Recovery Kit Included</li>
+            <li>Recovery-focused environment</li>
+            <li>Advanced post-operative massage available</li>
+            <li>Mobility equipment available upon request</li>
+            <li>Minutes from Bush Intercontinental Airport (IAH)</li>
+            <li>Created by a nurse with 8 years in cosmetic surgery, recovery, and aesthetics</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- WHY GUESTS CHOOSE BOX -->
+      <div class="why-choose-box">
+        <p class="why-choose-title">Why Choose The Sculpt Houston</p>
+        <div class="why-choose-grid">
+          <div class="why-item"><span class="why-check">✓</span> Nurse-Owned &amp; Operated</div>
+          <div class="why-item"><span class="why-check">✓</span> Advanced Fibrosis &amp; Corrective Work</div>
+          <div class="why-item"><span class="why-check">✓</span> Private Recovery Environment</div>
+          <div class="why-item"><span class="why-check">✓</span> Customized First 48 Post Op Recovery Kit</div>
+          <div class="why-item"><span class="why-check">✓</span> Advanced Post-Operative Massage Available</div>
+          <div class="why-item"><span class="why-check">✓</span> Convenient Airport Access</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; max-width:620px; margin:0 auto;">
+        <p style="font-size:10px; letter-spacing:4px; color:var(--gold); font-weight:300; margin-bottom:16px;">SERVING HOUSTON &amp; OUT-OF-STATE RECOVERY GUESTS</p>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; color:var(--cream); line-height:1.8; margin-bottom:12px;">Located near Bush Intercontinental Airport (IAH), The Sculpt Houston welcomes guests from across Houston and across the country.</p>
+        <p style="font-size:12px; color:rgba(245,239,224,0.5); font-weight:300; letter-spacing:1px; line-height:1.8;">Perfect for local patients and those traveling to Houston for their procedure and recovery.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-section">
+    <p class="section-eyebrow">WHAT MOST PATIENTS DON'T KNOW</p>
+    <h2 class="section-title">Recovery is half the result.</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">72%</div>
+        <div class="stat-label">WHERE YOU STAY MATTERS</div>
+        <div class="stat-desc">of post-surgical infections appear during recovery at home, not during surgery itself.</div>
+        <div class="stat-source">Hansson et al.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">14</div>
+        <div class="stat-label">THE FIRST 14 DAYS DECIDE EVERYTHING</div>
+        <div class="stat-desc">Fibrosis formation begins in the first 1 to 12 weeks post-surgery. Your environment during this window shapes your results.</div>
+        <div class="stat-source">Perea Clinic</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">≠</div>
+        <div class="stat-label">NOT EVERY MASSAGE IS THE SAME</div>
+        <div class="stat-desc">Untrained post op massage can create fibrosis instead of breaking it up. Technique, pressure, and timing all matter.</div>
+        <div class="stat-source"></div>
+      </div>
+    </div>
+    <p class="stats-closer">Recovery is half the result. Make sure you're doing it right.</p>
+  </div>
+
+  <div class="intro-section">
+    <p class="section-eyebrow">THE SCULPT HOUSTON</p>
+    <p class="intro-body">
+      Your recovery deserves as much attention as your procedure. The Sculpt Houston was created to provide a private, comfortable recovery environment designed specifically for cosmetic surgery patients. From your Customized First 48 Post Op Recovery Kit to optional post-operative massage services available through your preferred provider or through Snatched Secrets Aesthetics, every detail was chosen with healing in mind.
+    </p>
+    <p class="intro-body" style="margin-top:0;">
+      Whether you're traveling from across Houston or across the country, The Sculpt Houston offers the privacy, comfort, and support needed during one of the most important parts of your recovery journey.
+    </p>
+  </div>
+
+  <div class="location-bar">
+    <div class="location-item"><div class="location-dot"></div>15 Min from Bush Airport</div>
+    <div class="location-item"><div class="location-dot"></div>15 Min from Target</div>
+    <div class="location-item"><div class="location-dot"></div>15 Min from H E B</div>
+    <div class="location-item"><div class="location-dot"></div>Spring · Humble · Atascocita</div>
+  </div>
+
+  <div class="entire-home-banner">
+    <p>ENTIRE 3 BEDROOM HOME · SLEEPS UP TO 5 · TOTAL PRIVACY · NOT A SHARED SPACE</p>
+  </div>
+
+</section>
+
+<!-- ===================== THE HOME PAGE ===================== -->
+<section id="the-home" class="page-section">
+
+  <div class="home-hero-section">
+    <p class="page-hero-label">BUILT FOR POST OP COMFORT</p>
+    <h1 class="page-hero-title">Everything you need.<br>Nothing you have to think about.</h1>
+  </div>
+
+  <div class="comfort-cards-grid">
+    <div class="comfort-card">
+      <div class="comfort-card-icon"></div>
+      <div class="card-icon-wrap"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="34" height="34"><path d="M5 18L20 5L35 18" stroke="#D4A04E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 15.5V34H16V25H24V34H32V15.5" stroke="#D4A04E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="comfort-card-title">ENTIRE HOME RESERVED FOR YOU</div>
+      <div class="comfort-card-body">Not a shared recovery house. Not a rented room.<br><br>The entire home is reserved for you and your chosen caregiver. Three bedrooms: one king, one queen, and The Recovery Vault™. Two bathrooms. Complete privacy.<br><br>Comfortable couch and multiple TVs throughout. Recovery should happen with the people you trust.</div>
+    </div>
+    <div class="comfort-card">
+      <div class="comfort-card-icon"></div>
+      <div class="card-icon-wrap"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="34" height="34"><rect x="4" y="20" width="32" height="12" rx="2" stroke="#D4A04E" stroke-width="1.2"/><path d="M4 20V14C4 13.4 4.4 13 5 13H12C12.6 13 13 13.4 13 14V20" stroke="#D4A04E" stroke-width="1.2" stroke-linecap="round"/><path d="M4 28V32" stroke="#D4A04E" stroke-width="1.2" stroke-linecap="round"/><path d="M36 28V32" stroke="#D4A04E" stroke-width="1.2" stroke-linecap="round"/><path d="M4 20H36" stroke="#D4A04E" stroke-width="1.2"/></svg></div>
+      <div class="comfort-card-title">DESIGNED FOR RECOVERY</div>
+      <div class="comfort-card-body">Every detail was selected with recovery in mind. The Recovery Vault™ is an exclusive treatment room reserved for Snatched Secrets Aesthetics clients. Advanced post-operative bodywork without ever leaving the home.</div>
+    </div>
+    <div class="comfort-card">
+      <div class="comfort-card-icon"></div>
+      <div class="card-icon-wrap"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="34" height="34"><rect x="7" y="14" width="26" height="19" rx="2" stroke="#D4A04E" stroke-width="1.2"/><rect x="5" y="10" width="30" height="6" rx="1.5" stroke="#D4A04E" stroke-width="1.2"/><path d="M20 10V33" stroke="#D4A04E" stroke-width="1.2"/><path d="M20 10C20 10 16 7 14 8C12 9 12.5 11 14 11.5C16 12.5 20 10 20 10Z" stroke="#D4A04E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 10C20 10 24 7 26 8C28 9 27.5 11 26 11.5C24 12.5 20 10 20 10Z" stroke="#D4A04E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="comfort-card-title">CUSTOMIZED FIRST 48 POST OP RECOVERY KIT</div>
+      <div class="comfort-card-body">Included with your stay. We've packed everything you need for the first 48 hours so your caregiver never has to leave your side.</div>
+      <ul class="comfort-card-list">
+        <li>Post-Op Recovery Essentials</li>
+        <li>Pads</li>
+        <li>Compression socks</li>
+        <li>Non slip socks</li>
+        <li>Bath wipes</li>
+        <li>Clorox wipes</li>
+        <li>Split gauze</li>
+        <li>Dial Gold for first approved shower</li>
+      </ul>
+      <p style="font-size:11px; color:var(--gold-soft); font-weight:300; letter-spacing:1px; margin-top:14px; font-style:italic;">Included with every stay at no additional cost.</p>
+    </div>
+    <div class="comfort-card">
+      <div class="comfort-card-icon"></div>
+      <div class="card-icon-wrap"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="34" height="34"><circle cx="20" cy="10" r="3" stroke="#D4A04E" stroke-width="1.2"/><path d="M20 13V22" stroke="#D4A04E" stroke-width="1.2" stroke-linecap="round"/><path d="M13 18H27" stroke="#D4A04E" stroke-width="1.2" stroke-linecap="round"/><path d="M13 18L10 30" stroke="#D4A04E" stroke-width="1.2" stroke-linecap="round"/><path d="M27 18L30 30" stroke="#D4A04E" stroke-width="1.2" stroke-linecap="round"/><path d="M8 33C8 33 9.5 30 13 30H27C30.5 30 32 33 32 33" stroke="#D4A04E" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+      <div class="comfort-card-title">COMFORT &amp; MOBILITY ITEMS</div>
+      <div class="comfort-card-body">No additional cost. Everything set up and ready before you arrive.</div>
+      <ul class="comfort-card-list">
+        <li>Shower chair</li>
+        <li>Bed Assist Rail</li>
+        <li>Recliner</li>
+        <li>Walker</li>
+        <li>Fluffy pillows</li>
+        <li>Wedge pillows</li>
+        <li>BBL bed setup</li>
+      </ul>
+    </div>
+    <div class="comfort-card">
+      <div class="comfort-card-icon"></div>
+      <div class="card-icon-wrap"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="34" height="34"><path d="M8 14H26V28C26 29.1 25.1 30 24 30H10C8.9 30 8 29.1 8 28V14Z" stroke="#D4A04E" stroke-width="1.2"/><path d="M26 17H30C31.7 17 33 18.3 33 20C33 21.7 31.7 23 30 23H26" stroke="#D4A04E" stroke-width="1.2"/><path d="M6 33H28" stroke="#D4A04E" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+      <div class="comfort-card-title">CAREGIVER COMFORTS</div>
+      <div class="comfort-card-body">A full kitchen so your caregiver can cook, rest, and recharge without leaving. Because they're going through this recovery too.</div>
+      <ul class="comfort-card-list">
+        <li>Nespresso Coffee Bar</li>
+                <li>Ninja Air Fryer</li>
+        <li>Fully Equipped Kitchen</li>
+        <li>Gas Stove</li>
+        <li>Optional Recovery Meal Prep Available</li>
+      </ul>
+    </div>
+    <div class="comfort-card">
+      <div class="comfort-card-icon"></div>
+      <div class="card-icon-wrap"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="34" height="34"><rect x="9" y="19" width="22" height="16" rx="2" stroke="#D4A04E" stroke-width="1.2"/><path d="M14 19V14C14 11.2 16.2 9 19 9H21C23.8 9 26 11.2 26 14V19" stroke="#D4A04E" stroke-width="1.2" stroke-linecap="round"/><circle cx="20" cy="27" r="2" stroke="#D4A04E" stroke-width="1.2"/></svg></div>
+      <div class="comfort-card-title">PRIVATE RECOVERY ENVIRONMENT</div>
+      <div class="comfort-card-body">Not a shared recovery house. Not a rented room.<br><br>The entire home is reserved exclusively for you and your caregiver. Complete privacy throughout your recovery.<br><br>Mobility equipment available upon request.</div>
+    </div>
+  </div>
+
+  <div class="every-stay-section">
+    <div style="text-align:center;">
+      <p class="section-eyebrow">EVERY STAY INCLUDES</p>
+      <h2 class="section-title" style="font-size:32px;">Every Stay Includes</h2>
+    </div>
+    <div class="every-stay-grid" style="max-width:560px;">
+      <div class="stay-item">3BR / 2BA Entire Home</div>
+      <div class="stay-item">Fast WiFi</div>
+      <div class="stay-item">Gas Stove</div>
+      <div class="stay-item">Nespresso Bar</div>
+      <div class="stay-item">Ninja Appliances</div>
+      <div class="stay-item">Customized First 48 Post Op Recovery Kit</div>
+      <div class="stay-item">Fresh Linens</div>
+      <div class="stay-item">Climate Control</div>
+      <div class="stay-item">Washer / Dryer</div>
+      <div class="stay-item">Private &amp; Secure</div>
+      <div class="stay-item">Fire Alarm</div>
+      <div class="stay-item">CO Detector</div>
+      <div class="stay-item">Reachable Host</div>
+    </div>
+  </div>
+
+  <div class="snatched-section">
+    <div class="snatched-inner">
+      <div class="snatched-logo-placeholder">SNATCHED<br>SECRETS</div>
+      <div>
+        <p class="snatched-content-label">ADVANCED POST-OPERATIVE MASSAGE</p>
+        <p class="snatched-content-body">
+          Guests are welcome to schedule advanced post-operative massage services during their stay without leaving the comfort of their recovery home.
+        </p>
+        <ul class="snatched-bullets">
+          <li>Advanced post-operative massage techniques</li>
+          <li>Fibrosis-focused recovery experience</li>
+          <li>Advanced corrective recovery techniques</li>
+          <li>Available directly in your recovery home</li>
+          <li>Convenient scheduling during your stay</li>
+          <li>No transportation required</li>
+          <li>Full massage packages available</li>
+        </ul>
+        <p class="snatched-excl">Guests are welcome to book their preferred post-operative massage provider. The Recovery Vault™ is exclusive to Snatched Secrets Aesthetics clients and is not available to outside providers or personal massage therapists.</p>
+        <p style="font-size:11px; color:rgba(245,239,224,0.4); font-weight:300; margin-top:10px; font-style:italic;">Massage packages are available separately from recovery stay packages.</p>
+        <div style="margin-top:24px;">
+          <a href="#" onclick="showPage('alicia')" class="btn-ghost" style="font-size:10px; letter-spacing:2px; display:inline-block;">ADVANCED POST-OP MASSAGE →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===================== PACKAGES PAGE ===================== -->
+<section id="packages" class="page-section">
+  <div class="packages-section">
+    <p class="section-eyebrow">STAY PACKAGES</p>
+    <h1 class="section-title" style="font-size:50px; margin-bottom:8px;">Recovery Stay Packages</h1>
+    <p style="font-size:13px; color:rgba(245,239,224,0.45); font-weight:300; letter-spacing:1px;">Select the recovery stay that fits your procedure and healing timeline.</p>
+    <div style="margin-top:24px; padding:20px 28px; border:1px solid rgba(212,160,78,0.35); background:rgba(212,160,78,0.06); max-width:700px;">
+      <p style="font-size:10px; letter-spacing:2px; color:var(--gold); font-weight:400; margin-bottom:8px;">PRICING REFLECTS PRIVATE HOME STAY ONLY</p>
+      <p style="font-size:12px; color:rgba(245,239,224,0.6); font-weight:300; line-height:1.8;">Recovery massage packages, meal prep services, and additional services are available separately. Pricing shown is for your private recovery home stay only.</p>
+    </div>
+
+    <div class="packages-grid">
+      <!-- Off Camera -->
+      <div class="package-card" style="position:relative;">
+        <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:rgba(212,160,78,0.15); border:1px solid rgba(212,160,78,0.4); color:var(--gold-soft); font-size:8px; letter-spacing:3px; padding:5px 16px; font-weight:600; white-space:nowrap;">THE QUICK STAY</div>
+        <p class="pkg-name">OFF CAMERA</p>
+        <p class="pkg-subtitle">Quick nip and tuck / Lipo</p>
+        <div class="pkg-price"><sup>$</sup>2,625</div>
+        <p class="pkg-per-night">$375 / NIGHT</p>
+        <p class="pkg-nights">7 NIGHTS</p>
+        <div class="pkg-rule"></div>
+        <ul class="pkg-includes">
+          <li>Entire 3BR / 2BA private home</li>
+          <li>Customized First 48 Post Op Recovery Kit</li>
+          <li>All comfort and mobility items</li>
+          <li>Full kitchen access</li>
+          <li>Reachable host throughout</li>
+        </ul>
+      </div>
+
+      <!-- New Body -->
+      <div class="package-card featured">
+        <div class="featured-badge">THE RECOVERY STANDARD</div>
+        <p class="pkg-name">NEW BODY</p>
+        <p class="pkg-subtitle">Lipo 360 / BBL</p>
+        <div class="pkg-price"><sup>$</sup>3,450</div>
+        <p class="pkg-per-night">$345 / NIGHT</p>
+        <p class="pkg-nights">10 NIGHTS</p>
+        <div class="pkg-rule"></div>
+        <ul class="pkg-includes">
+          <li>Everything in Off Camera</li>
+          <li>1 Free post op massage</li>
+        </ul>
+        <div class="pkg-save">SAVE $450</div>
+      </div>
+
+      <!-- Reveal -->
+      <div class="package-card" style="border-color:rgba(232,158,158,0.3); position:relative;">
+        <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--rose-dark); color:var(--cream); font-size:8px; letter-spacing:3px; padding:5px 16px; font-weight:600; white-space:nowrap;">THE SIGNATURE STAY</div>
+        <p class="pkg-name" style="color:var(--rose);">THE REVEAL</p>
+        <p class="pkg-subtitle">Mommy makeover / Tummy tuck</p>
+        <div class="pkg-price"><sup>$</sup>4,410</div>
+        <p class="pkg-per-night">$315 / NIGHT</p>
+        <p class="pkg-nights">14 NIGHTS</p>
+        <div class="pkg-rule" style="background:rgba(232,158,158,0.2);"></div>
+        <ul class="pkg-includes">
+          <li>Everything in New Body</li>
+          <li>2 Free post op massages</li>
+          <li>Detox flush included</li>
+        </ul>
+        <div class="pkg-save" style="border-color:rgba(232,158,158,0.3); color:var(--rose); background:rgba(232,158,158,0.06);">SAVE $1,155</div>
+      </div>
+    </div>
+
+    <p class="packages-note">Launch specials offered privately only. DM @thesculpthouston to inquire.</p>
+
+    <div style="text-align:center; margin-top:56px;">
+      <a href="#" class="btn-primary" onclick="showPage('book')">RESERVE YOUR STAY</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE MENU PAGE ===================== -->
+<section id="menu" class="page-section">
+  <div class="menu-section">
+    <p class="section-eyebrow">OPTIONAL RECOVERY ADD-ONS</p>
+    <h1 class="section-title" style="font-size:50px;">Recovery Enhancements</h1>
+    <p style="font-size:13px; color:rgba(245,239,224,0.45); font-weight:300; letter-spacing:1px; margin-bottom:32px;">Additional wellness and nutrition options available during your recovery stay.</p>
+
+    <!-- SERVICES DISCLAIMER BOX -->
+    <div style="border:1px solid rgba(212,160,78,0.35); background:rgba(212,160,78,0.05); padding:28px 32px; margin-bottom:40px; text-align:left;">
+      <p style="font-size:10px; letter-spacing:3px; color:var(--gold); font-weight:300; margin-bottom:16px;">RECOVERY SERVICES: BOOKING GUIDE</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px 32px; margin-bottom:16px;">
+        <div style="font-size:12px; color:rgba(245,239,224,0.7); font-weight:300; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Private Recovery Home Stays</div>
+        <div style="font-size:12px; color:rgba(245,239,224,0.7); font-weight:300; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Post-Operative Massage Packages</div>
+        <div style="font-size:12px; color:rgba(245,239,224,0.7); font-weight:300; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Nursing Care Packages</div>
+        <div style="font-size:12px; color:rgba(245,239,224,0.7); font-weight:300; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Recovery Meal Options</div>
+        <div style="font-size:12px; color:rgba(245,239,224,0.7); font-weight:300; display:flex; gap:8px;"><span style="color:var(--gold);">✓</span> Wellness &amp; Hydration Add-Ons</div>
+      </div>
+      <p style="font-size:11px; color:rgba(245,239,224,0.4); font-weight:300; font-style:italic;">All meal, beverage, massage, nursing, and recovery support services are optional and priced separately from recovery home accommodations.</p>
+    </div>
+
+    <div class="menu-category">
+      <p class="menu-cat-label">DETOX FLUSHES</p>
+      <h2 class="menu-cat-title">Recovery Wellness Drinks</h2>
+      <p class="menu-cat-tagline">Optional wellness beverages formulated to support hydration and digestive comfort during recovery.</p>
+      <div class="menu-items-grid">
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <div class="menu-item-name">Colon Detox</div>
+            <div class="menu-item-desc">Pineapple base</div>
+            <div class="menu-price-row">$15 each &nbsp;·&nbsp; 3 for $40</div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <div class="menu-item-name">Toxin Flush</div>
+            <div class="menu-item-desc">Papaya base</div>
+            <div class="menu-price-row">$15 each &nbsp;·&nbsp; 3 for $40</div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <div class="menu-item-name">Greener On The Other Side</div>
+            <div class="menu-item-desc">Spinach base</div>
+            <div class="menu-price-row">$15 each &nbsp;·&nbsp; 3 for $40</div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <div class="menu-item-name">IRON UP</div>
+            <div class="menu-item-desc">Beets base</div>
+            <div class="menu-price-row">$15 each &nbsp;·&nbsp; 3 for $40</div>
+            <div class="post-op-fave">POST OP FAVORITE</div>
+          </div>
+          <div class="menu-item-badge">IRON BOOST</div>
+        </div>
+        <div class="menu-bundle">
+          <div>
+            <div class="menu-bundle-text"><strong>Bundle of 6</strong> &nbsp;·&nbsp; Any combination of flushes</div>
+            <div class="menu-bundle-text" style="margin-top:4px; color:rgba(245,239,224,0.4); font-size:10px;">Safe for caregivers wanting a detox cleanse too</div>
+          </div>
+          <div class="menu-bundle-save">$72 &nbsp;·&nbsp; SAVE $18</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <p class="menu-cat-label">POST OP MEAL PREP</p>
+      <h2 class="menu-cat-title">Recovery Meal Options</h2>
+      <p class="menu-cat-tagline">Optional recovery-friendly meal options available during your stay. Prepared for convenience during the early stages of healing.</p>
+      <div class="menu-items-grid">
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <div class="menu-item-name">Recovery Meal Prep</div>
+            <div class="menu-item-desc">Recovery-friendly meals available for guests who prefer ready-to-eat options during their stay.</div>
+            <div class="menu-price-row">$15 each &nbsp;·&nbsp; 3 for $40</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <p class="menu-cat-label">THE CAREGIVER'S CHOICE</p>
+      <h2 class="menu-cat-title">Caregiver Meal Options</h2>
+      <p class="menu-cat-tagline">Optional fresh meal selections available for caregivers and accompanying guests.</p>
+      <div class="menu-items-grid">
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <div class="menu-item-name">Lomo Saltado</div>
+            <div class="menu-item-desc">Classic Peruvian stir fry with tenderloin, tomatoes, peppers, and fries</div>
+            <div class="menu-price-row">$15 each &nbsp;·&nbsp; 3 of same for $40</div>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <div class="menu-item-name">Tallarines Verdes con Bistek</div>
+            <div class="menu-item-desc">Peruvian green pasta with basil walnut sauce and grilled steak</div>
+            <div class="menu-price-row">$15 each &nbsp;·&nbsp; 3 of same for $40</div>
+          </div>
+        </div>
+        <div class="menu-item" style="grid-column:1/-1;">
+          <div class="menu-item-info">
+            <div class="menu-item-name">Arroz con Pollo</div>
+            <div class="menu-item-desc">Peruvian style chicken and rice with cilantro broth and vegetables</div>
+            <div class="menu-price-row">$15 each &nbsp;·&nbsp; 3 of same for $40</div>
+          </div>
+          <div class="menu-item-badge">CAREGIVER FAV</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== MEET ALICIA PAGE ===================== -->
+<section id="alicia" class="page-section">
+  <div class="meet-section">
+    <div class="meet-grid">
+      <div class="meet-image-placeholder">
+        <div class="meet-image-text">ALICIA DELCARMEN<br>YOUR HOST<br><br>Photo goes here</div>
+      </div>
+      <div class="meet-content">
+        <p class="meet-title">MEET YOUR HOST</p>
+        <h1 class="meet-name">Alicia<br>DelCarmen</h1>
+        <p class="meet-role">Nurse &nbsp;·&nbsp; Licensed Massage Therapist &nbsp;·&nbsp; Licensed Esthetician</p>
+        <p style="font-size:9px; letter-spacing:3px; color:var(--gold-soft); font-weight:300; margin-bottom:28px; font-style:italic;">Creator of The SnatchedPrint Method™</p>
+        <div class="cred-credentials-box">
+          <p class="cred-box-title">Advanced Recovery Training &amp; Certifications</p>
+          <div class="cred-list">
+            <div class="cred-item">✓ Licensed Nurse</div>
+            <div class="cred-item">✓ Licensed Massage Therapist</div>
+            <div class="cred-item">✓ CIDESCO-Trained</div>
+            <div class="cred-item">✓ Certified Sports &amp; Stretch Therapy Specialist</div>
+            <div class="cred-item">✓ Advanced Brazilian Post-Operative Massage Training</div>
+            <div class="cred-item">✓ Advanced Colombian Post-Operative Massage Training</div>
+            <div class="cred-item">✓ Post Op Massage Training</div>
+            <div class="cred-item">✓ Fibrosis-Focused Recovery Experience</div>
+            <div class="cred-item">✓ Advanced Corrective Recovery Techniques</div>
+            <div class="cred-item">✓ Hydrotherapy &amp; Recovery Modalities Training</div>
+            <div class="cred-item">✓ Creator of The SnatchedPrint Method™</div>
+            <div class="cred-item">✓ 8 Years In Cosmetic Surgery, Recovery &amp; Aesthetics</div>
+          </div>
+        </div>
+        <p class="meet-bio">For the past 8 years, I've been deep in the world of cosmetic surgery recovery, sharing real experiences, education, and post-operative insights across YouTube, where my content has reached over 100,000 views. Over the past 5 years, I've also worked directly with post-operative patients through massage therapy and aesthetics, seeing firsthand how much recovery environment and technique matter.</p>
+        <p class="meet-bio">After training at a CIDESCO-accredited institute and receiving advanced education in esthetics, massage therapy, post op massage techniques, hydrotherapy, and recovery modalities, I built a practice centered around post-operative care and corrective bodywork.</p>
+        <p class="meet-bio" style="font-weight:400; color:rgba(245,239,224,0.85);">Advanced Fibrosis &amp; Corrective Recovery</p>
+        <p class="meet-bio">One of the most overlooked aspects of post-operative recovery is fibrosis. Many patients receive post op massage without a provider who truly understands how to identify and correct it. Through advanced Brazilian and Colombian recovery techniques and corrective bodywork, I focus on addressing the challenges that often go unresolved elsewhere.</p>
+        <div class="meet-closer">
+          I created The Sculpt Houston and The SnatchedPrint Method™ to provide the kind of recovery experience I believe every patient deserves.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- CLIENT RESULTS GALLERY -->
+  <div style="padding:80px 40px; background:var(--eggplant-mid); border-top:1px solid rgba(212,160,78,0.15);">
+    <div style="max-width:1000px; margin:0 auto;">
+      <p class="section-eyebrow" style="text-align:center; margin-bottom:12px;">RESULTS</p>
+      <h2 class="section-title" style="text-align:center; font-size:32px; margin-bottom:32px;">Client Recovery</h2>
+      <p style="text-align:center; font-size:12px; color:rgba(245,239,224,0.4); font-weight:300; letter-spacing:1px; margin-bottom:40px; font-style:italic;">Before &amp; after results shared with client permission.</p>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
+        <div class="photo-slot tall" id="client-1">
+          <div class="photo-slot-icon">✦</div>
+          <div class="photo-slot-hint">CLIENT PHOTO</div>
+          <div class="photo-slot-label">CLIENT RESULT</div>
+        </div>
+        <div class="photo-slot tall" id="client-2">
+          <div class="photo-slot-icon">✦</div>
+          <div class="photo-slot-hint">CLIENT PHOTO</div>
+          <div class="photo-slot-label">CLIENT RESULT</div>
+        </div>
+        <div class="photo-slot tall" id="client-3">
+          <div class="photo-slot-icon">✦</div>
+          <div class="photo-slot-hint">CLIENT PHOTO</div>
+          <div class="photo-slot-label">CLIENT RESULT</div>
+        </div>
+        <div class="photo-slot tall" id="client-4">
+          <div class="photo-slot-icon">✦</div>
+          <div class="photo-slot-hint">CLIENT PHOTO</div>
+          <div class="photo-slot-label">CLIENT RESULT</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SNATCHEDPRINT METHOD -->
+  <div style="background:var(--eggplant-mid); border-top:1px solid rgba(212,160,78,0.15); border-bottom:1px solid rgba(212,160,78,0.15); padding:80px 40px;">
+    <div style="max-width:760px; margin:0 auto;">
+      <p class="section-eyebrow" style="margin-bottom:14px;">ALICIA'S METHOD</p>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:300; color:var(--cream); margin-bottom:8px; line-height:1.2;">The SnatchedPrint Method™</h2>
+      <div style="width:48px; height:1px; background:var(--gold); opacity:0.5; margin-bottom:32px;"></div>
+
+      <p style="font-size:14px; color:rgba(245,239,224,0.75); font-weight:300; line-height:1.9;">A proprietary recovery approach that combines nursing knowledge, post op massage techniques, fibrosis management, Brazilian and Colombian post-operative techniques, and advanced corrective bodywork, tailored to each client's individual recovery needs.</p>
+    </div>
+  </div>
+
+  <!-- PRIVATE HOME / RECOVERY WITH PEOPLE YOU TRUST -->
+  <div style="padding:80px 40px; background:var(--eggplant);">
+    <div style="max-width:760px; margin:0 auto;">
+      <p class="section-eyebrow" style="margin-bottom:14px;">THE DIFFERENCE</p>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:42px; font-weight:300; color:var(--cream); margin-bottom:32px; line-height:1.2;">Private Recovery With The People You Trust</h2>
+      <p style="font-size:14px; color:rgba(245,239,224,0.75); font-weight:300; line-height:1.9; margin-bottom:32px;">Your recovery stay includes exclusive access to the entire home for you and your chosen caregiver.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px 40px; margin-bottom:40px;">
+        <div style="font-size:13px; color:rgba(245,239,224,0.8); font-weight:300; display:flex; gap:10px; align-items:center;"><span style="color:var(--gold); font-size:14px;">✓</span> Spouse or Partner</div>
+        <div style="font-size:13px; color:rgba(245,239,224,0.8); font-weight:300; display:flex; gap:10px; align-items:center;"><span style="color:var(--gold); font-size:14px;">✓</span> Parent</div>
+        <div style="font-size:13px; color:rgba(245,239,224,0.8); font-weight:300; display:flex; gap:10px; align-items:center;"><span style="color:var(--gold); font-size:14px;">✓</span> Family Member</div>
+        <div style="font-size:13px; color:rgba(245,239,224,0.8); font-weight:300; display:flex; gap:10px; align-items:center;"><span style="color:var(--gold); font-size:14px;">✓</span> Friend</div>
+        <div style="font-size:13px; color:rgba(245,239,224,0.8); font-weight:300; display:flex; gap:10px; align-items:center;"><span style="color:var(--gold); font-size:14px;">✓</span> Professional Caregiver</div>
+      </div>
+      <div style="border:1px solid rgba(212,160,78,0.2); padding:24px 28px; background:rgba(212,160,78,0.04);">
+        <p style="font-size:13px; color:rgba(245,239,224,0.75); font-weight:400; line-height:1.9; letter-spacing:1px;">Entire Private Home Reserved For You. Never Shared. Never Crowded.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="snatched-section">
+    <div class="snatched-inner">
+      <div class="snatched-logo-placeholder">SNATCHED<br>SECRETS</div>
+      <div>
+        <p class="snatched-content-label">ADVANCED POST-OPERATIVE MASSAGE</p>
+        <p class="snatched-content-body">
+          Guests are welcome to schedule advanced post-operative massage services during their stay without leaving the comfort of their recovery home.
+        </p>
+        <ul class="snatched-bullets">
+          <li>Advanced post-operative massage techniques</li>
+          <li>Fibrosis-focused recovery experience</li>
+          <li>Advanced corrective recovery techniques</li>
+          <li>Available directly in your recovery home</li>
+          <li>Convenient scheduling during your stay</li>
+          <li>No transportation required</li>
+          <li>Full massage packages available</li>
+        </ul>
+        <p class="snatched-excl">Guests are welcome to book their preferred post-operative massage provider. The Recovery Vault™ is exclusive to Snatched Secrets Aesthetics clients and is not available to outside providers or personal massage therapists.</p>
+        <p style="font-size:11px; color:rgba(245,239,224,0.4); font-weight:300; margin-top:10px; font-style:italic;">Massage packages are available separately from recovery stay packages.</p>
+        <div style="margin-top:24px;">
+          <a href="#" onclick="showPage('alicia')" class="btn-ghost" style="font-size:10px; letter-spacing:2px; display:inline-block;">ADVANCED POST-OP MASSAGE →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AREAS WE SERVE PAGE ===================== -->
+<section id="areas" class="page-section">
+  <div class="areas-section">
+    <p class="section-eyebrow">AREAS WE SERVE</p>
+    <h1 class="section-title" style="font-size:50px;">Houston &amp;<br>Beyond.</h1>
+    <p style="font-size:15px; color:rgba(245,239,224,0.7); font-weight:300; max-width:520px; line-height:2; margin-bottom:48px;">The Sculpt Houston welcomes guests from across Houston and from all over the country. Whether you live locally or you're traveling in for your procedure, we're ready when you land.</p>
+
+    <div class="areas-grid">
+      <div class="area-card">
+        <p class="area-name">HOUSTON LOCALS</p>
+        <p class="area-desc">Skip the commute home after surgery. Recover privately and comfortably close to where you had your procedure, with everything you need already set up and waiting.</p>
+      </div>
+      <div class="area-card">
+        <p class="area-name">NEAR BUSH AIRPORT (IAH)</p>
+        <p class="area-desc">Located just minutes from Bush Intercontinental Airport. If you're flying in for your procedure, you can go directly from the airport to your recovery home without a cross-city drive.</p>
+      </div>
+      <div class="area-card">
+        <p class="area-name">OUT-OF-STATE GUESTS</p>
+        <p class="area-desc">Many guests travel to Houston specifically for cosmetic surgery. The Sculpt Houston makes that experience seamless. Private, nurse-owned, and close to the airport from day one.</p>
+      </div>
+      <div class="area-card">
+        <p class="area-name">CAREGIVERS &amp; FAMILY</p>
+        <p class="area-desc">The home sleeps up to 5. Bring the people you trust. There's space for everyone, a full kitchen, and a comfortable environment for both the patient and the people caring for them.</p>
+      </div>
+    </div>
+
+    <!-- AIRPORT SECTION -->
+    <div style="margin-top:60px; border:1px solid rgba(212,160,78,0.3); background:rgba(212,160,78,0.05); padding:48px 40px;">
+      <p class="section-eyebrow" style="margin-bottom:14px;">AIRPORT ACCESS</p>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; color:var(--cream); margin-bottom:8px; line-height:1.3;">Perfect For Out-Of-State Patients</h2>
+      <p style="font-size:13px; color:var(--purple-soft); font-weight:300; letter-spacing:1px; margin-bottom:32px;">Located just minutes from Bush Intercontinental Airport (IAH)</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px 40px; max-width:560px;">
+        <div style="font-size:13px; color:rgba(245,239,224,0.75); font-weight:300; display:flex; gap:10px; align-items:flex-start; line-height:1.6;"><span style="color:var(--gold); font-size:14px; flex-shrink:0;">✓</span> Quick airport access</div>
+        <div style="font-size:13px; color:rgba(245,239,224,0.75); font-weight:300; display:flex; gap:10px; align-items:flex-start; line-height:1.6;"><span style="color:var(--gold); font-size:14px; flex-shrink:0;">✓</span> Easy arrival for caregivers and family</div>
+        <div style="font-size:13px; color:rgba(245,239,224,0.75); font-weight:300; display:flex; gap:10px; align-items:flex-start; line-height:1.6;"><span style="color:var(--gold); font-size:14px; flex-shrink:0;">✓</span> No cross-city Houston commute after surgery</div>
+        <div style="font-size:13px; color:rgba(245,239,224,0.75); font-weight:300; display:flex; gap:10px; align-items:flex-start; line-height:1.6;"><span style="color:var(--gold); font-size:14px; flex-shrink:0;">✓</span> Private accommodations ready when you land</div>
+        <div style="font-size:13px; color:rgba(245,239,224,0.75); font-weight:300; display:flex; gap:10px; align-items:flex-start; line-height:1.6;"><span style="color:var(--gold); font-size:14px; flex-shrink:0;">✓</span> Ideal for guests traveling from across the U.S.</div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- ===================== BOOK NOW PAGE ===================== -->
+<section id="book" class="page-section">
+  <div class="book-section">
+    <p class="section-eyebrow">RESERVE YOUR STAY</p>
+    <h1 class="section-title" style="font-size:44px; margin-bottom:8px;">Your dates.<br>Your home.</h1>
+    <div style="border:1px solid rgba(212,160,78,0.25); background:rgba(212,160,78,0.05); padding:20px 28px; margin-bottom:24px; text-align:left;">
+      <p style="font-size:10px; letter-spacing:3px; color:var(--gold); font-weight:300; margin-bottom:10px;">ENTIRE HOME RESERVED EXCLUSIVELY FOR YOU</p>
+      <p style="font-size:12px; color:rgba(245,239,224,0.6); font-weight:300; line-height:1.8;">No strangers. No shared recovery rooms. No shared recovery spaces. Just privacy, comfort, and the people you trust most.</p>
+    </div>
+    <p style="font-size:12px; color:rgba(245,239,224,0.4); font-weight:300; letter-spacing:1px; margin-bottom:0;">A non refundable 20% deposit holds your date.</p>
+
+    <div class="book-pkg-selector">
+      <div class="book-pkg-option selected" onclick="selectPkg(this)">
+        <div class="book-pkg-option-name">OFF CAMERA</div>
+        <div class="book-pkg-option-price">$2,625</div>
+        <div class="book-pkg-option-nights">7 nights</div>
+      </div>
+      <div class="book-pkg-option" onclick="selectPkg(this)">
+        <div class="book-pkg-option-name">NEW BODY</div>
+        <div class="book-pkg-option-price">$3,450</div>
+        <div class="book-pkg-option-nights">10 nights</div>
+      </div>
+      <div class="book-pkg-option" onclick="selectPkg(this)">
+        <div class="book-pkg-option-name">REVEAL</div>
+        <div class="book-pkg-option-price">$4,410</div>
+        <div class="book-pkg-option-nights">14 nights</div>
+      </div>
+    </div>
+
+    <div class="book-form">
+      <div class="book-form-row">
+        <div class="form-group">
+          <label>FIRST NAME</label>
+          <input type="text" placeholder="First name">
+        </div>
+        <div class="form-group">
+          <label>LAST NAME</label>
+          <input type="text" placeholder="Last name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>EMAIL</label>
+        <input type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label>PHONE</label>
+        <input type="tel" placeholder="(555) 000-0000">
+      </div>
+      <div class="book-form-row">
+        <div class="form-group">
+          <label>PROCEDURE TYPE</label>
+          <select>
+            <option>Select procedure</option>
+            <option>BBL</option>
+            <option>Lipo 360</option>
+            <option>Mommy Makeover</option>
+            <option>Tummy Tuck</option>
+            <option>Lipo / Nip Tuck</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>SURGERY DATE</label>
+          <input type="date">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>SURGEON / PRACTICE (IF KNOWN)</label>
+        <input type="text" placeholder="Optional">
+      </div>
+      <div class="form-group">
+        <label>ADD ONS (OPTIONAL)</label>
+        <textarea placeholder="Detox flushes, post op meal prep, Peruvian meals, post op massages..."></textarea>
+      </div>
+      <button class="btn-primary" style="width:100%; padding:18px; font-size:11px; letter-spacing:3px; cursor:pointer; border:none;">SEND INQUIRY</button>
+      <p class="book-deposit-note">A non refundable 20% deposit holds your date. We will follow up within 24 hours to confirm availability and send your deposit invoice.</p>
+    </div>
+
+    <div class="book-contact-alt">
+      <p>OR REACH US DIRECTLY</p>
+      <a href="mailto:bookings@thesculpthtx.com">bookings@thesculpthtx.com</a><br><br>
+      <a href="https://instagram.com/thesculpthouston" target="_blank">@thesculpthouston</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (shown on all pages) -->
+<footer id="site-footer">
+  <div class="footer-tagline">THE HOUSTON TAKE OVER</div>
+  <div class="footer-wordmark">SCULPT HOUSTON</div>
+  <ul class="footer-links">
+    <li><a href="#" onclick="showPage('home')">Home</a></li>
+    <li><a href="#" onclick="showPage('the-home')">The Home</a></li>
+    <li><a href="#" onclick="showPage('packages')">Stay Packages</a></li>
+    <li><a href="#" onclick="showPage('menu')">The Menu</a></li>
+    <li><a href="#" onclick="showPage('alicia')">Meet Alicia</a></li>
+    <li><a href="#" onclick="showPage('areas')">Areas We Serve</a></li>
+    <li><a href="#" onclick="showPage('book')">Book Now</a></li>
+  </ul>
+  <div class="footer-rcr">RECOVERY &nbsp;·&nbsp; MASSAGE &nbsp;·&nbsp; COMFORT</div>
+  <div style="font-size:9px; letter-spacing:2px; color:rgba(245,239,224,0.15); font-weight:300; margin-bottom:16px;">Nurse-Owned &amp; Operated &nbsp;·&nbsp; 8 Years In Cosmetic Surgery, Recovery &amp; Aesthetics &nbsp;·&nbsp; Creator of The SnatchedPrint Method™</div>
+  <div class="footer-disclaimer">The Sculpt Houston offers private recovery accommodation. Guests follow their own surgeon's care instructions.</div>
+  <div class="footer-bottom">&copy; 2026 The Sculpt Houston &nbsp;·&nbsp; thesculpthtx.com &nbsp;·&nbsp; bookings@thesculpthtx.com</div>
+</footer>
+
+<script>
+function showPage(pageId) {
+  document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+  const target = document.getElementById(pageId);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function selectPkg(el) {
+  document.querySelectorAll('.book-pkg-option').forEach(e => e.classList.remove('selected'));
+  el.classList.add('selected');
+}
+</script>
+
+</body>
+</html>
